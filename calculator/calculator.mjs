@@ -1,3 +1,5 @@
+import { sum, subs, mult, div } from "./operators.mjs";
+
 const calculator = (n1, n2) => {
   if (n2 === undefined) {
     if (typeof n1 !== "number") {
@@ -9,10 +11,11 @@ const calculator = (n1, n2) => {
   } else if (typeof n1 !== "number" || typeof n2 !== "number") {
     return "Error: Please, you must introduce a number.";
   } else {
-    const resultsSum = Math.round(((n1 + n2) * 1000) / 1000),
-      resultsSubstraction = Math.round(((n1 - n2) * 1000) / 1000),
-      resultsMultiplication = Math.round((n1 * n2 * 1000) / 1000),
-      resultsDivision = Math.round(((n1 / n2) * 1000) / 1000);
+    const resultsSum = sum(n1, n2),
+      resultsSubstraction = subs(n1, n2),
+      resultsMultiplication = mult(n1, n2),
+      resultsDivision = div(n1, n2);
+
     return [
       `The result of the sum is ${resultsSum}`,
       `The result of the substraction is ${resultsSubstraction}`,
@@ -22,4 +25,4 @@ const calculator = (n1, n2) => {
   }
 };
 
-console.log(calculator(15));
+console.log(calculator(3, 4));
