@@ -19,9 +19,9 @@ const calculator = (arr) => {
   } else {
     return [
       `Result of sum is ${isInteger(sum)}`,
-      `Result of substraction is ${substraction}`,
-      `Result of multiplication is ${multiplication}`,
-      `Result of division is ${division}`,
+      `Result of substraction is ${isInteger(substraction)}`,
+      `Result of multiplication is ${isInteger(multiplication)}`,
+      `Result of division is ${isInteger(division)}`,
     ];
   }
 };
