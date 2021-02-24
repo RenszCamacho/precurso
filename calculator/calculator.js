@@ -28,5 +28,3 @@ const calculator = (n1, n2) => {
     return "Error: You must introduce a number.";
   }
 };
-
-console.log(calculator("Hola" + "Que ase"));
