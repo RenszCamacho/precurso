@@ -1,3 +1,5 @@
+let cancel = false;
+
 const isInteger = (resultNumber) => {
   if (Number.isInteger(resultNumber)) {
     return resultNumber;
@@ -26,6 +28,24 @@ const calculator = (arr) => {
   }
 };
 
+const newOperation = (user) => {
+  let askNewOperation = prompt(
+    "Do you want to make another operation? Type: y = yes or n = no"
+  );
+
+  if (askNewOperation === null) {
+    return cancel === true;
+  }
+
+  if (askNewOperation.toLowerCase().trim() === "y") {
+    askNumber(user);
+  } else {
+    cancel = true;
+    console.log(`See you later, ${user}!`);
+    alert(`See you later, ${user}!`);
+  }
+};
+
 const notNumber = (arrNumbers) => {
   for (let i = 0; i < arrNumbers.length; i++) {
     if (isNaN(arrNumbers[i])) {
@@ -41,9 +61,14 @@ const askNumber = (user) => {
     .split(",")
     .map((el) => parseInt(el));
   notNumber(userValue);
+  newOperation(user);
 };
 
 const askUserName = () => {
   let userName = prompt("Introduce your name, please.");
   askNumber(userName);
 };
+
+do {
+  askNumber();
+} while (!cancel);
