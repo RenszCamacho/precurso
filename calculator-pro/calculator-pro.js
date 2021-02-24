@@ -42,3 +42,8 @@ const askNumber = (user) => {
     .map((el) => parseInt(el));
   notNumber(userValue);
 };
+
+const askUserName = () => {
+  let userName = prompt("Introduce your name, please.");
+  askNumber(userName);
+};
