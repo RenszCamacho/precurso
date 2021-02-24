@@ -26,8 +26,19 @@ const calculator = (arr) => {
   }
 };
 
+const notNumber = (arrNumbers) => {
+  for (let i = 0; i < arrNumbers.length; i++) {
+    if (isNaN(arrNumbers[i])) {
+      return console.log("Error: You must introduce a number.");
+    } else {
+      return console.log(calculator(arrNumbers));
+    }
+  }
+};
+
 const askNumber = (user) => {
   let userValue = prompt("Enter One! or More! numbers separated by commas.")
     .split(",")
     .map((el) => parseInt(el));
+  notNumber(userValue);
 };
