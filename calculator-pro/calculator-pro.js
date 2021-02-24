@@ -25,3 +25,9 @@ const calculator = (arr) => {
     ];
   }
 };
+
+const askNumber = (user) => {
+  let userValue = prompt("Enter One! or More! numbers separated by commas.")
+    .split(",")
+    .map((el) => parseInt(el));
+};
