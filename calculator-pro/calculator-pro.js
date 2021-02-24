@@ -1,5 +1,11 @@
 let cancel = false;
 
+const greeting = () => {
+  const greet = "Hi there. I would like to know your name.",
+    display = "results will be displayed by console.";
+  alert(`${greet} and the ${display}`);
+};
+
 const isInteger = (resultNumber) => {
   if (Number.isInteger(resultNumber)) {
     return resultNumber;
@@ -68,6 +74,8 @@ const askUserName = () => {
   let userName = prompt("Introduce your name, please.");
   askNumber(userName);
 };
+
+greeting();
 
 do {
   askNumber();
