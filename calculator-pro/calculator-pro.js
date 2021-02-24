@@ -40,7 +40,7 @@ const newOperation = (user) => {
   );
 
   if (askNewOperation === null) {
-    return cancel === true;
+    return (cancel = true);
   }
 
   if (askNewOperation.toLowerCase().trim() === "y") {
@@ -55,11 +55,10 @@ const newOperation = (user) => {
 const notNumber = (arrNumbers) => {
   for (let i = 0; i < arrNumbers.length; i++) {
     if (isNaN(arrNumbers[i])) {
-      return console.log("Error: You must introduce a number.");
-    } else {
-      return console.log(calculator(arrNumbers));
+      return alert("Error: You must introduce a number.");
     }
   }
+  return console.log(calculator(arrNumbers));
 };
 
 const askNumber = (user) => {
@@ -78,5 +77,5 @@ const askUserName = () => {
 greeting();
 
 do {
-  askNumber();
+  askUserName();
 } while (!cancel);
