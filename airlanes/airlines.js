@@ -24,29 +24,36 @@ let flights = [
 
 const greeting = () => {
   let userName = prompt("Hello, could you please introduce your name.");
-  return alert(`Hello ${userName}, welcome!`);
+  alert(`Hello ${userName}, welcome! You can see the results on the console.`);
+  return console.log(
+    `Hello ${userName}, welcome! You can see the results on the console.`
+  );
 };
 
 const displayingFlights = (arrFlights) => {
-  const a = arrFlights.map((flight) =>
+  const display = arrFlights.map((flight) =>
     flight.scale
-      ? `- The flight with origin: ${flight.from}, and destination: ${flight.to} has a cost of ${flight.cost}€ and makes a scale.
+      ? `- The flight with origin: ${flight.from}, and destination: ${flight.to} has a cost of ${flight.cost}€ and makes a stop.
 
     `
-      : `- The flight with origin: ${flight.from}, and destination: ${flight.to} has a cost of ${flight.cost}€ and does not make any scale.
+      : `- The flight with origin: ${flight.from}, and destination: ${flight.to} has a cost of ${flight.cost}€ and does not make any stop.
 
     `
   );
-  return console.log(...a);
+  return console.log(...display);
 };
-
-displayingFlights(flights);
 
 const averaPrices = () => {
   const prices = flights.map((price) => price.cost),
-    sumOfPrice = prices.reduce((acc, el) => acc + el, 0),
-    averageResult = Math.round(sumOfPrice / prices.length);
+    sumOfPrices = prices.reduce((acc, el) => acc + el, 0),
+    averageResult = Math.round(sumOfPrices / prices.length);
   return console.log(`- The average cost of flights is ${averageResult}€`);
 };
 
-averaPrices();
+const runProgram = () => {
+  greeting();
+  displayingFlights(flights);
+  averaPrices();
+};
+
+runProgram();
