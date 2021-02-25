@@ -21,3 +21,8 @@ let flights = [
 
   { id: 10, to: "Tel-Aviv", from: "Madrid", cost: 150, scale: false },
 ];
+
+const greeting = () => {
+  let userName = prompt("Hello, could you please introduce your name.");
+  return alert(`Hello ${userName}, welcome!`);
+};
