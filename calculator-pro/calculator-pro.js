@@ -10,7 +10,7 @@ const isInteger = (resultNumber) => {
   if (Number.isInteger(resultNumber)) {
     return resultNumber;
   } else {
-    resultNumber.toFixed(3);
+    return Math.round(resultNumber * 1000) / 1000;
   }
 };
 
@@ -23,7 +23,7 @@ const calculator = (arr) => {
 
   let squareRoot = sqrtRoot(arr[0]);
   if (arr.length === 1) {
-    return `The squareRoot of ${arr[0]} is ${squareRoot}`;
+    return `The squareRoot of ${arr[0]} is ${isInteger(squareRoot)}`;
   } else {
     return [
       `Result of sum is ${isInteger(sum)}`,
@@ -36,7 +36,7 @@ const calculator = (arr) => {
 
 const newOperation = (user) => {
   let askNewOperation = prompt(
-    "Do you want to make another operation? Type: y = yes or n = no"
+    "Type 'y' if you want to make another operation or any key to cancel"
   );
 
   if (askNewOperation === null) {
@@ -65,6 +65,7 @@ const askNumber = (user) => {
   let userValue = prompt("Enter One! or More! numbers separated by commas.")
     .split(",")
     .map((el) => parseInt(el));
+
   notNumber(userValue);
   newOperation(user);
 };
