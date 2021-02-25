@@ -26,3 +26,14 @@ const greeting = () => {
   let userName = prompt("Hello, could you please introduce your name.");
   return alert(`Hello ${userName}, welcome!`);
 };
+
+const displayingFlights = (arrFlights) =>
+  arrFlights.map((flight) =>
+    flight.scale
+      ? `The flight with origin: ${flight.from}, and destination: ${flight.to} has a cost of ${flight.cost}€ and makes a scale.
+
+    `
+      : `The flight with origin: ${flight.from}, and destination: ${flight.to} has a cost of ${flight.cost}€ and does not make any scale.
+
+    `
+  );
