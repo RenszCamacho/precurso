@@ -56,24 +56,40 @@ const averagePrices = () => {
   return console.log(`- The average cost of flights is ${averageResult}€`);
 };
 
-const filterFlights = (flights) => {
+const flightsWithStop = (flights) => {
   info("List of flights with stop.");
 
   const filterFlightsScale = flights.filter((flight) => flight.scale);
-  const printFlights = filterFlightsScale.map((flight) =>
-    console.log(
+  const printFlights = filterFlightsScale.map(
+    (flight) =>
       `
       - The flight with origin ${flight.from}, and destination: ${flight.to}, has a cost of ${flight.cost}€ and this flight makes a stop.`
-    )
   );
   return console.log(...printFlights);
+};
+
+const lastFlights = (flights) => {
+  info("List of the last five flights.");
+
+  const filterLastFlights = flights.filter(
+    (flight) => flight.id >= flights.length - 5
+  );
+
+  const printLastFligths = filterLastFlights.map(
+    (flight) =>
+      `
+      - The flight with origin ${flight.from}, and destination: ${flight.to}, has a cost of ${flight.cost}€ and this flight makes a stop.`
+  );
+
+  return console.log(...printLastFligths);
 };
 
 const runProgram = () => {
   greeting();
   displayingFlights(flights);
   averagePrices();
-  filterFlights(flights);
+  flightsWithStop(flights);
+  lastFlights(flights);
 };
 
 runProgram();
