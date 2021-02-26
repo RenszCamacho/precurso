@@ -22,6 +22,8 @@ let flights = [
   { id: 10, to: "Tel-Aviv", from: "Madrid", cost: 150, scale: false },
 ];
 
+const info = (str) => console.log(`*** ${str} ***`);
+
 const greeting = () => {
   let userName = prompt("Hello, could you please introduce your name.");
   alert(`Hello ${userName}, welcome! You can see the results on the console.`);
@@ -31,6 +33,8 @@ const greeting = () => {
 };
 
 const displayingFlights = (arrFlights) => {
+  info("List of all flight today");
+
   const display = arrFlights.map((flight) =>
     flight.scale
       ? `- The flight with origin: ${flight.from}, and destination: ${flight.to} has a cost of ${flight.cost}€ and makes a stop.
@@ -43,17 +47,33 @@ const displayingFlights = (arrFlights) => {
   return console.log(...display);
 };
 
-const averaPrices = () => {
+const averagePrices = () => {
+  info("This the average price for a flight.");
+
   const prices = flights.map((price) => price.cost),
     sumOfPrices = prices.reduce((acc, el) => acc + el, 0),
     averageResult = Math.round(sumOfPrices / prices.length);
   return console.log(`- The average cost of flights is ${averageResult}€`);
 };
 
+const filterFlights = (flights) => {
+  info("List of flights with stop.");
+
+  const filterFlightsScale = flights.filter((flight) => flight.scale);
+  const printFlights = filterFlightsScale.map((flight) =>
+    console.log(
+      `
+      - The flight with origin ${flight.from}, and destination: ${flight.to}, has a cost of ${flight.cost}€ and this flight makes a stop.`
+    )
+  );
+  return console.log(...printFlights);
+};
+
 const runProgram = () => {
   greeting();
   displayingFlights(flights);
-  averaPrices();
+  averagePrices();
+  filterFlights(flights);
 };
 
 runProgram();
